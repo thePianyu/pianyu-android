@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".ui.home.MyFragment">
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/login"
+            android:text="@string/login"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:id="@+id/userinfo"
+                android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_margin="12dp"
+                    android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <ImageView
+                            android:layout_width="80dp"
+                            android:layout_margin="8dp"
+                            android:id="@+id/avatar"
+                            android:layout_height="80dp">
+                    </ImageView>
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginVertical="8dp"
+                            android:layout_height="match_parent">
+                        <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/username"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"/>
+                        <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/headline"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"/>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

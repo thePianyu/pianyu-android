@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="12dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="40dp"
+                android:id="@+id/avatar"
+                android:layout_height="40dp">
+        </ImageView>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="title"
+                android:id="@+id/username"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_height="wrap_content">
+        </TextView>
+
+        <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+        </Space>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="end|center"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:id="@+id/date"
+                android:text="TIME"
+                android:layout_height="wrap_content">
+        </TextView>
+
+
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/textview"
+            android:layout_margin="12dp"
+            android:layout_height="wrap_content"/>
+
+    <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="12dp"
+            android:id="@+id/chip_group"
+            app:chipSpacingVertical="3dp"
+            app:chipSpacingHorizontal="3dp"
+            android:layout_height="wrap_content">
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>
