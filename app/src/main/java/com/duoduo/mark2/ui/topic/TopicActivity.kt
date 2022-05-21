@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.Menu
 import android.widget.ImageView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
@@ -15,9 +14,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.duoduo.mark2.R
 import com.duoduo.mark2.api.ApiClient
 import com.duoduo.mark2.api.TopicService
-import com.duoduo.mark2.models.BaseResponse
-import com.duoduo.mark2.models.Topic
-import com.duoduo.mark2.ui.NewPostActivity
 import com.duoduo.mark2.ui.NewPostActivity2
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.appbar.MaterialToolbar
@@ -26,10 +22,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
 import java.lang.Exception
 
 class TopicActivity : AppCompatActivity() {
