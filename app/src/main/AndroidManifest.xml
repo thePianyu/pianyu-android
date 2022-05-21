@@ -11,21 +11,17 @@
 
     <application
             android:name=".MyApplication"
-            android:allowBackup="true"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:requestLegacyExternalStorage="true"
             android:supportsRtl="true"
-            android:theme="@style/Theme.MDClubAndroid"
-            android:usesCleartextTraffic="true">
+            android:theme="@style/Theme.MDClubAndroid">
         <activity
                 android:name=".ui.NewPostActivity2"
                 android:exported="true"/>
         <activity
                 android:name=".ui.CommentActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".ui.NewPostActivity"
                 android:exported="true"/>
         <activity
                 android:name=".ui.QuestionActivity"

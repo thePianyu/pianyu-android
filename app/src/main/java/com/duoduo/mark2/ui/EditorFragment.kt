@@ -1,16 +1,13 @@
 package com.duoduo.mark2.ui
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.JsResult
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import com.duoduo.mark2.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -19,13 +16,13 @@ class EditorFragment(val listener: Listener) : Fragment() {
 
     interface Listener {
         fun onLoaded()
+        fun onGetMarkdownContent(content: String)
     }
 
     private lateinit var webView: WebView
 
     private lateinit var btnBold: MaterialButton
     private lateinit var btnHeader: MaterialButton
-    private lateinit var btnStrikethrough: MaterialButton
     private lateinit var btnImage: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +39,7 @@ class EditorFragment(val listener: Listener) : Fragment() {
         return inflater.inflate(R.layout.fragment_editor, container, false)
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @SuppressLint("SetJavaScriptEnabled", "JavascriptInterface")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         webView = view.findViewById(R.id.webview)
         webView.settings.javaScriptEnabled = true
@@ -61,10 +58,6 @@ class EditorFragment(val listener: Listener) : Fragment() {
         btnHeader = view.findViewById(R.id.btn_header)
         btnHeader.setOnClickListener {
             formatHeading("h1")
-        }
-        btnStrikethrough = view.findViewById(R.id.btn_strikethrough)
-        btnStrikethrough.setOnClickListener {
-            formatText("strikethrough")
         }
         btnImage = view.findViewById(R.id.btn_image)
         btnImage.setOnClickListener {
@@ -87,6 +80,14 @@ class EditorFragment(val listener: Listener) : Fragment() {
                 return true
             }
         }
+
+        webView.addJavascriptInterface(object {
+            @JavascriptInterface
+            fun getMarkdownContent(content: String) {
+                Log.d("MarkdownEditor", content)
+                listener.onGetMarkdownContent(content)
+            }
+        }, "editorCallback")
     }
 
     private fun executeJavaScript(js: String) {
@@ -95,6 +96,10 @@ class EditorFragment(val listener: Listener) : Fragment() {
 
     fun setMarkdownContent(content: String) {
         executeJavaScript("window.setMarkdownContent(\"${content.replace("\"", "\\\"")}\\n\")")
+    }
+
+    fun getMarkdownContent() {
+        executeJavaScript("window.getMarkdownContent()")
     }
 
     fun formatText(payload: String) {
